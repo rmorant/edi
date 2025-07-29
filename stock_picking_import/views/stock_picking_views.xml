@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2023 ALBA Software
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <record id="stock_picking_type_kanban" model="ir.ui.view">
+        <field name="name">stock.picking.type.kanban-import</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.stock_picking_type_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@role='menu']//div[contains(@class,'o_kanban_manage_new')]">
+                <div role="menuitem" t-if="record.code.raw_value == 'incoming'">
+                    <a name="%(stock_picking_import_returns_action)d" type="action">
+                        Import Return Advanced Shiping Notification
+                    </a>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
